@@ -1,3 +1,7 @@
+var x,y;
+var m;
+var a=1600;
+var n;
 class mover{
 constructor(){
   createCanvas(800, 800);
@@ -28,7 +32,8 @@ constructor(){
 		this.position.add(this.velocity);
 	}
  display(){
-	background (255,0,0);
+
+	 background (150,0,0);
 	 fill(175);
   strokeWeight(5);
   stroke(204,0,0);  
@@ -40,6 +45,23 @@ constructor(){
   fill(204,0,0);
   triangle(225+this.position.y, 450-this.position.x, 375+this.position.y, 375+this.position.x, 375+this.position.y, 275+this.position.x);
   triangle(375+this.position.y, 375+this.position.x, 375+this.position.y, 275+this.position.x, 525+this.position.y, 450-this.position.x);
+	 for (var i=0;i<=5*1600;i++) {
+      stroke(random(0,175));
+      x = random(0,a);
+      y = random(0,a);
+      line(x,y,x+random(0,20),y);
+  }
+  stroke(100,100);
+  line(0,n,a,n);
+  n++;
+  if (n>a) {
+    n=0;
+  }
+  stroke(100,100);
+  line(0,m,a,m);
+  m++;
+  if (m>a) {
+    m=0;}
  }
 	 /*var v0 = createVector(300+this.position.y, this.position.x+100);
   
@@ -61,11 +83,12 @@ constructor(){
   triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);
   pop();}
 	*/
- checkEdges(){
-	 if ((this.position.x > 800) || (this.position.x < 0)) {
+
+	checkEdges(){
+	 if ((this.position.x > width/2) || (this.position.x < 0)) {
     this.velocity.x = this.velocity.x * -1;
   }
- if ((this.position.y > 500 ) || (this.position.y < 0)) {
+ if ((this.position.y > 300 ) || (this.position.y < 0)) {
     this.velocity.y = this.velocity.y * -1;}
 }	
 }
@@ -95,8 +118,7 @@ constructor(){
 	
 	
 	
-	
-	let Mover;
+let Mover;
 
 function setup() {
   createCanvas(800, 800);
